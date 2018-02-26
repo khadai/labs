@@ -17,16 +17,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-    	CoffeeDrink espresso = new CoffeeDrink("Espresso", 50, 12, SortsOfDrinks_Enum.instant, 0, PackOfCoffee_Enum.JAR, 50);
-		CoffeeDrink nescafe = new CoffeeDrink("Nescafe", 250, 5, SortsOfDrinks_Enum.instant,0, PackOfCoffee_Enum.PACK, 150);
-		CoffeeDrink cappuchino = new CoffeeDrink("Cappuchino", 250, 15, SortsOfDrinks_Enum.instant, 150, PackOfCoffee_Enum.JAR, 100);
-        CocoaDrink hotMilkChocolate = new CocoaDrink("Hot Milk Chocolate", 150, 16, SortsOfDrinks_Enum.other, 110, true); 
+    	CoffeeDrink espresso = new CoffeeDrink("Espresso", 50, 12, SortsOfDrinks_Enum.INSTANT, 0, PackOfCoffee_Enum.JAR, 50);
+		CoffeeDrink nescafe = new CoffeeDrink("Nescafe", 250, 5, SortsOfDrinks_Enum.INSTANT,0, PackOfCoffee_Enum.PACK, 150);
+		CoffeeDrink cappuchino = new CoffeeDrink("Cappuchino", 250, 15, SortsOfDrinks_Enum.INSTANT, 150, PackOfCoffee_Enum.JAR, 100);
+        CocoaDrink hotMilkChocolate = new CocoaDrink("Hot Milk Chocolate", 150, 16, SortsOfDrinks_Enum.OTHER, 110, true); 
 		CoffeeDrink americano = new CoffeeDrink("Americano", 150, 16, SortsOfDrinks_Enum.CEREAL, 40, PackOfCoffee_Enum.PACK, 110);
 		CoffeeDrink groundedCoffee = new CoffeeDrink("Grounded coffee", 250, 46, SortsOfDrinks_Enum.GROUNDED, 0, PackOfCoffee_Enum.PACK, 250);
 		
-		Tea greenTea = new Tea("Green royal tea", 450, 54, SortsOfDrinks_Enum.Green, 0, 2);
-		Tea blackTea = new Tea("Obama`s local tea", 950, 94, SortsOfDrinks_Enum.Black, 0, 6);
-		Tea fruitTea = new Tea("Dracon`s fruit tea", 450, 74, SortsOfDrinks_Enum.Fruit, 0, 3);
+		Tea greenTea = new Tea("Green royal tea", 450, 54, SortsOfDrinks_Enum.GREEN, 0, 2);
+		Tea blackTea = new Tea("Obama`s local tea", 950, 94, SortsOfDrinks_Enum.BLACK, 0, 6);
+		Tea fruitTea = new Tea("Dracon`s fruit tea", 450, 74, SortsOfDrinks_Enum.FRUIT, 0, 3);
 
 		Drink water = new Drink();
 		
@@ -50,8 +50,8 @@ public class Main {
         System.out.println(" 4 - Print list of available teas;");
         System.out.println(" 5 - Print list of available cocoas;");
         System.out.println(" 6 - Print list of coffee, sorted by coffee amount;");
-        System.out.println(" 8 - Search by type of pack;");
-        System.out.println(" 9 - Exit;");
+        System.out.println(" 7 - Search by type of pack;");
+        System.out.println(" 8 - Exit;");
         
         boolean justBooleanVariable = true;
        

@@ -8,7 +8,7 @@ public class Drink {
 	private int capacity = 250;
 	private int price;
 	private int milkAmount;
-	public SortsOfDrinks_Enum sort = SortsOfDrinks_Enum.other;
+	public SortsOfDrinks_Enum sort = SortsOfDrinks_Enum.OTHER;
 	
 
 	public Drink(){
