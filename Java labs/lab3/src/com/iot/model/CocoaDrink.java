@@ -3,7 +3,8 @@
  */
 package com.iot.model;
 
-import model.enums.SortsOfDrinks_Enum;
+import model.enums.DrinkSortType;
+import model.enums.DrinkType;
 
 /**
  * @author khadai
@@ -15,9 +16,9 @@ public class CocoaDrink extends Drink {
 	public CocoaDrink() {
 	}
 
-	public CocoaDrink(String name, int capacity, int price, SortsOfDrinks_Enum sort, 
-			int milkAmount, boolean doubleChocolate) {
-		super(name, capacity, price, sort,  milkAmount);
+	public CocoaDrink(String name, int capacity, int price, DrinkSortType sort, int milkAmount, DrinkType drinkType,
+			boolean doubleChocolate) {
+		super(name, capacity, price, sort, milkAmount, drinkType);
 		this.doubleChocolate = doubleChocolate;
 	}
 

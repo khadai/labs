@@ -1,19 +1,20 @@
 package com.iot.model;
 
-import model.enums.PackOfCoffee_Enum;
-import model.enums.SortsOfDrinks_Enum;
+import model.enums.CoffeePackType;
+import model.enums.DrinkSortType;
+import model.enums.DrinkType;
 
 public class CoffeeDrink extends Drink implements Comparable<CoffeeDrink>{
 	
-	private PackOfCoffee_Enum packageType;
+	private CoffeePackType packageType;
 	private int coffeeAmount;
 	
 	public CoffeeDrink() {
 	}
 
-	public CoffeeDrink(String name, int capacity, int price, SortsOfDrinks_Enum sort,
-			int milkAmount, PackOfCoffee_Enum packageType, int coffeeAmount) {
-		super(name, capacity, price, sort,  milkAmount);
+	public CoffeeDrink(String name, int capacity, int price, DrinkSortType sort, int milkAmount, DrinkType drinkType,
+			CoffeePackType packageType, int coffeeAmount) {
+		super(name, capacity, price, sort, milkAmount, drinkType);
 		this.packageType = packageType;
 		this.coffeeAmount = coffeeAmount;
 	}
@@ -26,7 +27,7 @@ public class CoffeeDrink extends Drink implements Comparable<CoffeeDrink>{
 		this.coffeeAmount = coffeeAmount;
 	}
 
-	public PackOfCoffee_Enum getPackageType() {
+	public CoffeePackType getPackageType() {
 		return packageType;
 	}
 

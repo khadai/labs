@@ -8,112 +8,105 @@ import com.iot.model.CoffeeDrink;
 import com.iot.model.Drink;
 import com.iot.model.Tea;
 
-//import model.enums.PackOfCoffee_Enum;
-import model.enums.SortsOfDrinks_Enum;
+import model.enums.DrinkType;
 
 public class MenuManager {
-	private  LinkedList<Drink> availableDrinks = new LinkedList<Drink>();
+	private List<Drink> availableDrinks = new LinkedList<Drink>();
 
-	
-	public  void printMenu() {
+	public void printMenu() {
 		for (Drink coffee : availableDrinks) {
 			System.out.println(coffee);
 		}
 	}
-	
-	public  void print(LinkedList<Drink> drinks) {
-		for ( Drink coffee : drinks) {
+
+	public void print(List<Drink> drinks) {
+		for (Drink coffee : drinks) {
 			System.out.println(coffee);
 		}
 	}
-	
-	
-	public MenuManager() {}
-	
-	public MenuManager(LinkedList<Drink> availableDrinks) {
+
+	public MenuManager() {
+	}
+
+	public MenuManager(List<Drink> availableDrinks) {
 		this.availableDrinks = availableDrinks;
 	}
 
-	public  void sortByCoffeeAmount(LinkedList<CoffeeDrink> list) {
-		list.sort((CoffeeDrink o1, CoffeeDrink o2)->o1.getCoffeeAmount()-o2.getCoffeeAmount());
-	} 
-	
-	public  LinkedList<Drink> findBySortOfDrink(String type) {
-		LinkedList<Drink> coffeeList = new LinkedList<Drink>();
+	public void sortByCoffeeAmount(List<CoffeeDrink> coffees) {
+		coffees.sort((CoffeeDrink o1, CoffeeDrink o2) -> o1.getCoffeeAmount() - o2.getCoffeeAmount());
+	}
+
+	public List<Drink> findBySortOfDrink(String type) {
+		List<Drink> coffeeList = new LinkedList<Drink>();
 		for (Drink drink : availableDrinks) {
-			if(type.equalsIgnoreCase(drink.getSort().toString())) {
+			if (type.equalsIgnoreCase(drink.getSort().toString())) {
 				coffeeList.add(drink);
 			}
 		}
 		return coffeeList;
 	}
-	
-	public  LinkedList<CoffeeDrink> findByPackOfDrink(String type) {
-		LinkedList<CoffeeDrink> coffeeList = new LinkedList<CoffeeDrink>();
+
+	public List<CoffeeDrink> findByPackOfDrink(String type) {
+		List<CoffeeDrink> coffeeList = new LinkedList<CoffeeDrink>();
 		for (CoffeeDrink drink : findCoffees()) {
-			if(type.equalsIgnoreCase(drink.getPackageType().toString())) {
+			if (type.equalsIgnoreCase(drink.getPackageType().toString())) {
 				coffeeList.add(drink);
 			}
 		}
 		return coffeeList;
 	}
-	
-	public  LinkedList<CoffeeDrink> findCoffees() {
-		LinkedList<CoffeeDrink> coffeeList = new LinkedList<CoffeeDrink>();
+
+	public List<CoffeeDrink> findCoffees() {
+		List<CoffeeDrink> coffeeList = new LinkedList<CoffeeDrink>();
 		for (Drink drink : availableDrinks) {
-			if(drink.getClass().getSimpleName().equals("CoffeeDrink")) {
+			if (drink.getDrinkType().equals(DrinkType.COFFEE)) {
 				coffeeList.add((CoffeeDrink) drink);
-				}
 			}
-		if (coffeeList.size()>1) {
-		return coffeeList;
 		}
-		else {
+		if (coffeeList.size() > 1) {
+			return coffeeList;
+		} else {
 			System.out.println("There is no coffee in the menu!");
 			return null;
 		}
 	}
-	
-	public  LinkedList<Tea> findTeas() {
-		LinkedList<Tea> teaList = new LinkedList<Tea>();
+
+	public List<Tea> findTeas() {
+		List<Tea> teaList = new LinkedList<Tea>();
 		for (Drink drink : availableDrinks) {
-			if(drink.getClass().getSimpleName().equals("Tea")) {
+			if (drink.getDrinkType().equals(DrinkType.TEA)) {
 				teaList.add((Tea) drink);
-				}
 			}
-		if (teaList.size()>1) {
-		return teaList;
 		}
-		else {
+		if (teaList.size() > 1) {
+			return teaList;
+		} else {
 			System.out.println("There is no tea in the menu!");
 			return null;
 		}
 	}
-	
-	public  LinkedList<CocoaDrink> findCocoas() {
-		LinkedList<CocoaDrink> cocoaList = new LinkedList<CocoaDrink>();
+
+	public List<CocoaDrink> findCocoas() {
+		List<CocoaDrink> cocoaList = new LinkedList<CocoaDrink>();
 		for (Drink drink : availableDrinks) {
-			if(drink.getClass().getSimpleName().equals("CocoaDrink")) {
-				cocoaList.add( (CocoaDrink) drink);
-				}
+			if (drink.getDrinkType().equals(DrinkType.COCOA)) {
+				cocoaList.add((CocoaDrink) drink);
 			}
-		if (cocoaList.size()>=1) {
-		return cocoaList;
 		}
-		else {
+		if (cocoaList.size() >= 1) {
+			return cocoaList;
+		} else {
 			System.out.println("There is no cocoa in the menu!");
 			return null;
 		}
 	}
-	
-	public  LinkedList<Drink> getAvailableDrinks() {
+
+	public List<Drink> getAvailableDrinks() {
 		return availableDrinks;
 	}
 
-	public  void setAvailableDrinks(LinkedList<Drink> availableDrinks) {
+	public void setAvailableDrinks(LinkedList<Drink> availableDrinks) {
 		this.availableDrinks = availableDrinks;
 	}
 
-	
-	
 }

@@ -1,36 +1,38 @@
 package com.iot.model;
 
-import model.enums.SortsOfDrinks_Enum;
+import model.enums.DrinkType;
+import model.enums.DrinkSortType;
 
 public class Drink {
-	
+
 	private String name = "Water";
 	private int capacity = 250;
 	private int price;
 	private int milkAmount;
-	public SortsOfDrinks_Enum sort = SortsOfDrinks_Enum.OTHER;
-	
+	private DrinkSortType sort = DrinkSortType.OTHER;
+	private DrinkType drinkType = DrinkType.WATER;
 
-	public Drink(){
+	public Drink() {
 	}
-	
-	public Drink(String name, int capacity, int price, SortsOfDrinks_Enum sort, int milkAmount) {
+
+	public Drink(String name, int capacity, int price, DrinkSortType sort, int milkAmount, DrinkType drinkType) {
 		super();
 		this.name = name;
 		this.capacity = capacity;
 		this.price = price;
-		this.sort=sort;
+		this.sort = sort;
 		this.milkAmount = milkAmount;
+		this.drinkType = drinkType;
 	}
-	
+
 	@Override
 	public String toString() {
-		String info = "other: " + getName()+", ";
-		info+=getCapacity()+"ml, ";
-		info+=getPrice()+"$";
-		if(getMilkAmount() > 0) {
-			info+= ", milk: "+getMilkAmount()+"ml ";
-			}
+		String info = "other: " + getName() + ", ";
+		info += getCapacity() + "ml, ";
+		info += getPrice() + "$";
+		if (getMilkAmount() > 0) {
+			info += ", milk: " + getMilkAmount() + "ml ";
+		}
 		return info;
 	}
 
@@ -66,14 +68,16 @@ public class Drink {
 		this.milkAmount = milkAmount;
 	}
 
+	public DrinkType getDrinkType() {
+		return drinkType;
+	}
 
-	public SortsOfDrinks_Enum getSort() {
+	public DrinkSortType getSort() {
 		return sort;
 	}
 
-	public void setSort(SortsOfDrinks_Enum sort) {
+	public void setSort(DrinkSortType sort) {
 		this.sort = sort;
 	}
 
-	
 }

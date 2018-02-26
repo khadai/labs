@@ -3,7 +3,8 @@
  */
 package com.iot.model;
 
-import model.enums.SortsOfDrinks_Enum;
+import model.enums.DrinkType;
+import model.enums.DrinkSortType;
 
 /**
  * @author khadai
@@ -12,14 +13,13 @@ import model.enums.SortsOfDrinks_Enum;
 public class Tea extends Drink {
 
 	private int cupsAmount = 1;
-	private SortsOfDrinks_Enum typeOfTea;
-	
+
 	public Tea() {
 	}
 
-	public Tea(String name, int capacity, int price, SortsOfDrinks_Enum sort, int milkAmount,
-			 int cupsAmount) {
-		super(name, capacity, price, sort,  milkAmount);
+	public Tea(String name, int capacity, int price, DrinkSortType sort, int milkAmount, DrinkType drinkType,
+			int cupsAmount) {
+		super(name, capacity, price, sort, milkAmount, drinkType);
 		this.cupsAmount = cupsAmount;
 	}
 
@@ -31,21 +31,17 @@ public class Tea extends Drink {
 		this.cupsAmount = cupsAmount;
 	}
 
-	public SortsOfDrinks_Enum getTypeOfTea() {
-		return typeOfTea;
-	}
-	
 	@Override
 	public String toString() {
-		String info = "tea: " + getName()+", ";
-		info+=getCapacity()+"ml, ";
-		info+=getPrice()+"$, ";
-		info+=getCupsAmount()+" cups";
-		info+= ", coffee: 0";
-		if(getMilkAmount() > 0) {
-		info+= ", milk amount: "+getMilkAmount()+"ml ";
+		String info = "tea: " + getName() + ", ";
+		info += getCapacity() + "ml, ";
+		info += getPrice() + "$, ";
+		info += getCupsAmount() + " cups";
+		info += ", coffee: 0";
+		if (getMilkAmount() > 0) {
+			info += ", milk amount: " + getMilkAmount() + "ml ";
 		}
 		return info;
 	}
-	
+
 }
