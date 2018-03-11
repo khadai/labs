@@ -1,9 +1,0 @@
-manager\MenuManager.class
-model\enums\CoffeePackType.class
-com\iot\model\CocoaDrink.class
-com\iot\model\CoffeeDrink.class
-model\enums\DrinkSortType.class
-com\iot\model\Drink.class
-model\enums\DrinkType.class
-com\iot\Main.class
-com\iot\model\Tea.class
