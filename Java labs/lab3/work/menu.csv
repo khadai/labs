@@ -1,0 +1,30 @@
+name, capacity, price, milkAmount, sort, drinkType, doubleChocolate
+Hot Milk Chocolate, 150, 16, 110, OTHER, COCOA, true
+
+name, capacity, price, milkAmount, sort, drinkType, packageType, coffeeAmount
+Espresso, 50, 12, 0, INSTANT, COFFEE, JAR, 50
+
+name, capacity, price, milkAmount, sort, drinkType, packageType, coffeeAmount
+Americano, 150, 16, 40, CEREAL, COFFEE, PACK, 110
+
+name, capacity, price, milkAmount, sort, drinkType, packageType, coffeeAmount
+Nescafe, 250, 5, 0, INSTANT, COFFEE, PACK, 150
+
+name, capacity, price, milkAmount, sort, drinkType, packageType, coffeeAmount
+Cappuchino, 250, 15, 150, INSTANT, COFFEE, JAR, 100
+
+name, capacity, price, milkAmount, sort, drinkType, cupsAmount
+Green royal tea, 450, 54, 0, GREEN, TEA, 2, 2
+
+name, capacity, price, milkAmount, sort, drinkType, cupsAmount
+Obama`s local tea, 950, 94, 0, BLACK, TEA, 6, 6
+
+name, capacity, price, milkAmount, sort, drinkType, cupsAmount
+Dracon`s fruit tea, 450, 74, 0, FRUIT, TEA, 3, 3
+
+name, capacity, price, milkAmount, sort, drinkType, packageType, coffeeAmount
+Grounded coffee, 250, 46, 0, GROUNDED, COFFEE, PACK, 250
+
+name, capacity, price, milkAmount, sort, drinkType
+Water, 250, 0, 0, OTHER, WATER
+
