@@ -6,14 +6,25 @@ import com.iot.model.Drink;
 import com.iot.model.Tea;
 import model.enums.DrinkType;
 
-import java.util.LinkedList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MenuManager {
-    private List<Drink> availableDrinks = new LinkedList<>();
+    //private List<Drink> availableDrinks = new LinkedList<>();
+    private Map<Integer, Drink> availableDrinks = new HashMap<>();
+
+    public Map<Integer, Drink> getDrinks() {
+        return availableDrinks;
+    }
+
+    public void setDrinks(Map<Integer, Drink> drinks) {
+        this.availableDrinks = drinks;
+    }
 
     public final void printMenu() {
-        for (Drink coffee : availableDrinks) {
+        for (Map.Entry<Integer, Drink> coffee : availableDrinks.entrySet()) {
             System.out.println(coffee);
         }
     }
@@ -27,39 +38,43 @@ public class MenuManager {
     public MenuManager() {
     }
 
-    public MenuManager(final List<Drink> newAvailableDrinks) {
-        this.availableDrinks = newAvailableDrinks;
+    public MenuManager(Map<Integer, Drink> availableDrinks) {
+        this.availableDrinks = availableDrinks;
+    }
+
+    public void addDrink(Drink drink) {
+        availableDrinks.put(drink.getId(), drink);
     }
 
     public final void sortByCoffeeAmount(final List<CoffeeDrink> coffees) {
-        coffees.sort((CoffeeDrink o1, CoffeeDrink o2) -> o1.getCoffeeAmount() - o2.getCoffeeAmount());
+        coffees.sort(Comparator.comparingInt(CoffeeDrink::getCoffeeAmount));
     }
 
-    public final List<Drink> findBySortOfDrink(final String type) {
-        List<Drink> coffeeList = new LinkedList<Drink>();
-        for (Drink drink : availableDrinks) {
-            if (type.equalsIgnoreCase(drink.getSort().toString())) {
-                coffeeList.add(drink);
+    public final Map<Integer, Drink> findBySortOfDrink(final String type) {
+        Map<Integer, Drink> map = new HashMap<>();
+        for (Map.Entry<Integer, Drink> drink : availableDrinks.entrySet()) {
+            if (type.equalsIgnoreCase(drink.getValue().getSort().toString())) {
+                map.put(drink.getValue().getId(), drink.getValue());
+            }
+        }
+        return map;
+    }
+
+    public final Map<Integer, CoffeeDrink> findByPackOfDrink(final String type) {
+        Map<Integer, CoffeeDrink> coffeeList = new HashMap<>();
+        for (Map.Entry<Integer, CoffeeDrink> drink : findCoffees().entrySet()) {
+            if (type.equalsIgnoreCase(drink.getValue().getPackageType().toString())) {
+                coffeeList.put(drink.getValue().getId(), drink.getValue());
             }
         }
         return coffeeList;
     }
 
-    public final List<CoffeeDrink> findByPackOfDrink(final String type) {
-        List<CoffeeDrink> coffeeList = new LinkedList<CoffeeDrink>();
-        for (CoffeeDrink drink : findCoffees()) {
-            if (type.equalsIgnoreCase(drink.getPackageType().toString())) {
-                coffeeList.add(drink);
-            }
-        }
-        return coffeeList;
-    }
-
-    public final List<CoffeeDrink> findCoffees() {
-        List<CoffeeDrink> coffeeList = new LinkedList<CoffeeDrink>();
-        for (Drink drink : availableDrinks) {
-            if (drink.getDrinkType().equals(DrinkType.COFFEE)) {
-                coffeeList.add((CoffeeDrink) drink);
+    public final Map<Integer, CoffeeDrink> findCoffees() {
+        Map<Integer, CoffeeDrink> coffeeList = new HashMap<>();
+        for (Map.Entry<Integer, Drink> drink : availableDrinks.entrySet()) {
+            if (drink.getValue().getDrinkType().equals(DrinkType.COFFEE)) {
+                coffeeList.put(drink.getValue().getId(), (CoffeeDrink) drink.getValue());
             }
         }
         if (coffeeList.size() > 1) {
@@ -70,11 +85,11 @@ public class MenuManager {
         }
     }
 
-    public final List<Tea> findTeas() {
-        List<Tea> teaList = new LinkedList<Tea>();
-        for (Drink drink : availableDrinks) {
-            if (drink.getDrinkType().equals(DrinkType.TEA)) {
-                teaList.add((Tea) drink);
+    public final Map<Integer, Tea> findTeas() {
+        Map<Integer, Tea> teaList = new HashMap<>();
+        for (Map.Entry<Integer, Drink> drink : availableDrinks.entrySet()) {
+            if (drink.getValue().getDrinkType().equals(DrinkType.TEA)) {
+                teaList.put(drink.getValue().getId(), (Tea) drink.getValue());
             }
         }
         if (teaList.size() > 1) {
@@ -85,11 +100,11 @@ public class MenuManager {
         }
     }
 
-    public final List<CocoaDrink> findCocoas() {
-        List<CocoaDrink> cocoaList = new LinkedList<CocoaDrink>();
-        for (Drink drink : availableDrinks) {
-            if (drink.getDrinkType().equals(DrinkType.COCOA)) {
-                cocoaList.add((CocoaDrink) drink);
+    public final Map<Integer, CocoaDrink> findCocoas() {
+        Map<Integer, CocoaDrink> cocoaList = new HashMap<>();
+        for (Map.Entry<Integer, Drink> drink : availableDrinks.entrySet()) {
+            if (drink.getValue().getDrinkType().equals(DrinkType.COCOA)) {
+                cocoaList.put(drink.getValue().getId(), (CocoaDrink) drink.getValue());
             }
         }
         if (cocoaList.size() >= 1) {
@@ -100,8 +115,8 @@ public class MenuManager {
         }
     }
 
-    public final List<Drink> getAvailableDrinks() {
-        return availableDrinks;
+    public void setAvailableDrinks(Map<Integer, Drink> availableDrinks) {
+        this.availableDrinks = availableDrinks;
     }
 
 }

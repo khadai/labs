@@ -1,9 +1,10 @@
 C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\manager\MenuManager.java
 C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\model\enums\DrinkSortType.java
 C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\com\iot\model\Drink.java
+C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\writer\DrinkWriter.java
 C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\model\enums\DrinkType.java
 C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\com\iot\model\CocoaDrink.java
-C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\com\iot\Main.java
+C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\com\service\DrinkService.java
 C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\com\iot\model\Tea.java
 C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\model\enums\CoffeePackType.java
 C:\Users\khada\eclipse-workspace\lab3\work\src\main\java\com\iot\model\CoffeeDrink.java

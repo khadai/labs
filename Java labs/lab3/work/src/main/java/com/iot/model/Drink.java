@@ -11,19 +11,38 @@ public class Drink {
     private int milkAmount;
     private DrinkSortType sort = DrinkSortType.OTHER;
     private DrinkType drinkType = DrinkType.WATER;
+    private Integer id;
+
 
     public Drink() {
     }
 
+    public Drink(final int id) {
+        this.id = id;
+    }
+
     public Drink(final String pName, final int pCapacity, final int pPrice, final DrinkSortType pSort,
-                 final int pMilkAmount, final DrinkType pDrinkType) {
-        super();
+                 final int pMilkAmount, final DrinkType pDrinkType, final Integer pId) {
         this.name = pName;
         this.capacity = pCapacity;
         this.price = pPrice;
         this.sort = pSort;
         this.milkAmount = pMilkAmount;
         this.drinkType = pDrinkType;
+        this.id = pId;
+    }
+
+    public Drink(String name, Integer id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
