@@ -12,10 +12,10 @@ import model.enums.DrinkType;
 public class CocoaDrink extends Drink {
     private boolean doubleChocolate;
 
-    public CocoaDrink(final String name, final int capacity, final int price, final DrinkSortType sort,
-                      final int milkAmount, final DrinkType drinkType, final boolean pDoubleChocolate) {
-        super(name, capacity, price, sort, milkAmount, drinkType);
-        this.doubleChocolate = pDoubleChocolate;
+    public CocoaDrink(String pName, int pCapacity, int pPrice, DrinkSortType pSort, int pMilkAmount,
+                      DrinkType pDrinkType, Integer pId, boolean doubleChocolate) {
+        super(pName, pCapacity, pPrice, pSort, pMilkAmount, pDrinkType, pId);
+        this.doubleChocolate = doubleChocolate;
     }
 
     public final boolean isDoubleChocolate() {

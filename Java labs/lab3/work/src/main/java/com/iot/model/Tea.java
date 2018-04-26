@@ -16,10 +16,10 @@ public class Tea extends Drink {
     public Tea() {
     }
 
-    public Tea(final String name, final int capacity, final int price, final DrinkSortType sort, final int milkAmount,
-               final DrinkType drinkType, final int pCupsAmount) {
-        super(name, capacity, price, sort, milkAmount, drinkType);
-        this.cupsAmount = pCupsAmount;
+    public Tea(String pName, int pCapacity, int pPrice, DrinkSortType pSort, int pMilkAmount, DrinkType pDrinkType,
+               Integer pId, int cupsAmount) {
+        super(pName, pCapacity, pPrice, pSort, pMilkAmount, pDrinkType, pId);
+        this.cupsAmount = cupsAmount;
     }
 
     public final int getCupsAmount() {

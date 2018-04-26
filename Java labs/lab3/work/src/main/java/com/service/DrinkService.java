@@ -15,31 +15,30 @@ public class DrinkService {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)       //формат даних яких метод віддає
-    public final Drink getDrink(@PathParam("id") Integer id) {
-        return menuManager.getDrinks().get(id);
+    public Drink getDrink(@PathParam("id") Integer id) {
+        return menuManager.get(id);
     }
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)       //формат даних яких метод приймає
-    public final Response createDrink(Drink drink) {
-        menuManager.addDrink(drink);
+    public Response createDrink(Drink drink) {
+        menuManager.put(drink);
         return Response.status(200).entity("Good").build();
     }
 
     @DELETE
     @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public final Response deleteDrink(@PathParam("id") Integer id) {
-        menuManager.getDrinks().remove(id);
+    public Response deleteDrink(Drink drink) {
+        menuManager.remove(drink);
         return Response.status(200).entity("Good").build();
     }
 
     //метод який оновлює запис
     @POST
-    @Path("/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public final Response updateDrink(@PathParam("id") Integer id, Drink drink) {
-        menuManager.getDrinks().put(drink.getId(), drink);
+    public Response updateDrink(Drink drink) {
+        menuManager.update(drink);
         return Response.status(200).entity("Good").build();
     }
 

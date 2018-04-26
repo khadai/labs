@@ -11,12 +11,12 @@ public class CoffeeDrink extends Drink {
     public CoffeeDrink() {
     }
 
-    public CoffeeDrink(final String name, final int capacity, final int price, final DrinkSortType sort,
-                       final int milkAmount, final DrinkType drinkType, final CoffeePackType pPackageType,
-                       final int pCoffeeAmount) {
-        super(name, capacity, price, sort, milkAmount, drinkType);
-        this.packageType = pPackageType;
-        this.coffeeAmount = pCoffeeAmount;
+
+    public CoffeeDrink(String pName, int pCapacity, int pPrice, DrinkSortType pSort, int pMilkAmount,
+                       DrinkType pDrinkType, Integer pId, CoffeePackType packageType, int coffeeAmount) {
+        super(pName, pCapacity, pPrice, pSort, pMilkAmount, pDrinkType, pId);
+        this.packageType = packageType;
+        this.coffeeAmount = coffeeAmount;
     }
 
     public final String getHeaders() {
