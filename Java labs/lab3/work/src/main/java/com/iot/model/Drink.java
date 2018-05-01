@@ -7,36 +7,27 @@ import model.enums.DrinkType;
 public class Drink {
     @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     @javax.persistence.Id
-
-
-    private static final String COMMA_DELIMITER = ",";
-
-    @javax.persistence.Column(name = "drink_name")
-    private String name = "Water";
-
-    @javax.persistence.Column(name = "drink_capacity")
-    private int capacity = 250;
-
-    @javax.persistence.Column(name = "drink_price")
-    private int price;
-
-    @javax.persistence.Column(name = "drink_milk_amount")
-    private int milkAmount;
-
-    @javax.persistence.Column(name = "drink_sort")
-    private DrinkSortType sort = DrinkSortType.OTHER;
-
-    @javax.persistence.Column(name = "drink_type")
-    private DrinkType drinkType = DrinkType.WATER;
-
     @javax.persistence.Column(name = "drink_id")
     private Integer id;
 
+    private static final String COMMA_DELIMITER = ",";
+    @javax.persistence.Column(name = "drink_name")
+    private String name = "Water";
+    @javax.persistence.Column(name = "drink_capacity")
+    private int capacity = 250;
+    @javax.persistence.Column(name = "drink_price")
+    private int price;
+    @javax.persistence.Column(name = "drink_milk_amount")
+    private int milkAmount;
+    @javax.persistence.Column(name = "drink_sort")
+    private DrinkSortType sort = DrinkSortType.OTHER;
+    @javax.persistence.Column(name = "drink_type")
+    private DrinkType drinkType = DrinkType.WATER;
 
     public Drink() {
     }
 
-    public Drink( int id) {
+    public Drink(int id) {
         this.id = id;
     }
 
@@ -54,6 +45,10 @@ public class Drink {
     public Drink(String name, Integer id) {
         this.name = name;
         this.id = id;
+    }
+
+    public static String getCommaDelimiter() {
+        return COMMA_DELIMITER;
     }
 
     public Integer getId() {
@@ -84,7 +79,6 @@ public class Drink {
                 + getDrinkType();
     }
 
-
     public final String getName() {
         return name;
     }
@@ -97,20 +91,40 @@ public class Drink {
         return capacity;
     }
 
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
     public final int getPrice() {
         return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public final int getMilkAmount() {
         return milkAmount;
     }
 
+    public void setMilkAmount(int milkAmount) {
+        this.milkAmount = milkAmount;
+    }
+
     public final DrinkType getDrinkType() {
         return drinkType;
     }
 
+    public void setDrinkType(DrinkType drinkType) {
+        this.drinkType = drinkType;
+    }
+
     public final DrinkSortType getSort() {
         return sort;
+    }
+
+    public void setSort(DrinkSortType sort) {
+        this.sort = sort;
     }
 
 }
