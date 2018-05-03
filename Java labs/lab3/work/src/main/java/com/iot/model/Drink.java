@@ -3,6 +3,8 @@ package com.iot.model;
 import model.enums.DrinkSortType;
 import model.enums.DrinkType;
 
+import javax.persistence.*;
+
 @javax.persistence.Entity
 public class Drink {
     @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
