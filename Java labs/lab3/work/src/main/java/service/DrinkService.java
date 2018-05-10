@@ -1,16 +1,21 @@
-package com.service;
+package service;
 
 import com.iot.model.Drink;
 import manager.MenuManager;
 
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.Serializable;
 
 @Path("/drinks")
-public class DrinkService {
+@SessionScoped
+public class DrinkService implements Serializable {
 
-    public static MenuManager menuManager = new MenuManager();
+    @Inject
+    public MenuManager menuManager;
 
     @GET
     @Path("/{id}")

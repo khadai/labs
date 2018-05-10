@@ -1,5 +1,6 @@
 package manager;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,9 +12,11 @@ import com.iot.model.Tea;
 import model.enums.DrinkType;
 import persistence.dao.DrinkDao;
 
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-public class MenuManager {
+@Dependent
+public class MenuManager implements Serializable {
     @Inject
     private DrinkDao dao;
     private List<Drink> availableDrinks = new LinkedList<Drink>();
