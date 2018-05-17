@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class DrinkService implements Serializable {
 
     @Inject
-    public MenuManager menuManager;
+    private MenuManager menuManager;
 
     @GET
     @Path("/{id}")

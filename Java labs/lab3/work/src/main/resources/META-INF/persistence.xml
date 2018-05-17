@@ -6,7 +6,7 @@
 
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:/mysql</jta-data-source>
+        <jta-data-source>java:/MySqlDS</jta-data-source>
 
         <class>com.iot.model.Drink</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
